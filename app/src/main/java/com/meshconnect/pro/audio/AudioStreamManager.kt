@@ -1,4 +1,4 @@
-﻿package com.meshconnect.pro.audio
+package com.meshconnect.pro.audio
 
 import android.annotation.SuppressLint
 import android.media.*
@@ -135,7 +135,7 @@ class AudioStreamManager {
 
                 audioTrack?.play()
                 val buffer = ByteArray(minBufSize)
-                var bytesRead: Int
+                var bytesRead = 0
                 while (isActive && inputStream.read(buffer).also { bytesRead = it } != -1) {
                     audioTrack?.write(buffer, 0, bytesRead)
                 }
